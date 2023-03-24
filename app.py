@@ -9,18 +9,18 @@ import gspread
 # from selenium.webdriver.support.ui import WebDriverWait
 # from selenium.webdriver.support import expected_conditions as EC
 
-options = Options()
-options.headless = True
-# options.add_argument('--headless')
-# options.add_argument('--no-sandbox')
-# options.add_argument('--disable-dev-shm-usage')
-driver = webdriver.Chrome(options=options)
+
 
 app = Flask(__name__)
 
 
 @app.route('/scrape')
 def scrape():
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-gpu")
+    driver = webdriver.Chrome(options=chrome_options)
+    driver = webdriver.Chrome(options=chrome_options)
     username = "sankum@gmail.com"
     password = "navyug@123"
     driver.get('https://app.salesrobot.co/login')
