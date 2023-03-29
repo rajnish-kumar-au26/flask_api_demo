@@ -4,10 +4,13 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+from dotenv import load_dotenv
 import time
 import datetime
 import gspread
+import os
 
+load_dotenv()
 
 
 
@@ -24,8 +27,8 @@ def scrape():
     chrome_options.add_argument("--disable-gpu")
     service= Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service,options=chrome_options)
-    username = "sankum@gmail.com"
-    password = "navyug@123"
+    username = os.getenv('ID')
+    password = os.getenv('PASSWORD')
     driver.get('https://app.salesrobot.co/login')
 
     driver.find_element(By.XPATH, "//*[@id='email']").send_keys(username)
