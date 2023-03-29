@@ -19,7 +19,7 @@ def scrape():
     chrome_path = "chromedriver"
     chrome_binary = "/usr/bin/google-chrome"
     chrome_options = Options()
-    chrome_options.binary_location = "/usr/bin/chromedriver"
+    chrome_options.binary_location = "/usr/bin/google-chrome"
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--disable-gpu")
     service= Service(ChromeDriverManager().install())
