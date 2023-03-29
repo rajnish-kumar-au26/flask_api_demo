@@ -20,7 +20,6 @@ def scrape():
     chrome_options = Options()
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--disable-gpu")
-    # driver = webdriver.Chrome(options=chrome_options)
     service= Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service,options=chrome_options)
     username = "sankum@gmail.com"
