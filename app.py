@@ -17,11 +17,12 @@ app = Flask(__name__)
 @app.route('/scrape')
 def scrape():
     chrome_path = "chromedriver"
+    chrome_binary = "/usr/bin/google-chrome"
     chrome_options = Options()
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--disable-gpu")
     service= Service(ChromeDriverManager().install())
-    driver = webdriver.Chrome(service=service,options=chrome_options)
+    driver = webdriver.Chrome(chrome_binary,service=service,options=chrome_options)
     username = "sankum@gmail.com"
     password = "navyug@123"
     driver.get('https://app.salesrobot.co/login')
