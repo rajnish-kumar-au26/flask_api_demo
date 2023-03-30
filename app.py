@@ -26,7 +26,7 @@ def scrape():
  
     chrome_options.add_argument("--headless")
    
-    driver = webdriver.Chrome(executable_path="opt/render/project/chromedriver",options=chrome_options)
+    driver = webdriver.Chrome(options=chrome_options)
     username = os.getenv('ID')
     password = os.getenv('PASSWORD')
     driver.get('https://app.salesrobot.co/login')
