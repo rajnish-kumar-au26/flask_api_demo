@@ -10,6 +10,7 @@ import datetime
 import gspread
 import os
 
+
 load_dotenv()
 
 
@@ -17,16 +18,15 @@ load_dotenv()
 app = Flask(__name__)
 
 
-@app.route('/scrape')
+@app.route('/')
 def scrape():
     chrome_path = "chromedriver"
     chrome_binary = "/usr/bin/google-chrome"
     chrome_options = Options()
-    chrome_options.binary_location = "/usr/bin/google-chrome"
+ 
     chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--disable-gpu")
-    service= Service(ChromeDriverManager().install())
-    driver = webdriver.Chrome(service=service,options=chrome_options)
+   
+    driver = webdriver.Chrome(options=chrome_options)
     username = os.getenv('ID')
     password = os.getenv('PASSWORD')
     driver.get('https://app.salesrobot.co/login')
